@@ -1,6 +1,5 @@
 
 import 'package:dio/dio.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student/core/api/dio_consumer.dart';
 import 'package:student/core/error/handle_dio_error.dart';
@@ -21,12 +20,7 @@ class LoginBloc extends Bloc<LoginEventes, LoginState> {
 
     on<LoginSubmitted>((event, emit) async {
       emit(state.copyWith(status: LoginStatus.submitting));
-      String fcmToken = "";
-      try {
-        fcmToken = await FirebaseMessaging.instance.getToken() ?? "not_found"; // TODO: Get actual FCM token
-      } catch (e) {
-        fcmToken = "not_found";
-      }
+
 
       try {
         final api = DioConsumer(  BaseOptions(
@@ -41,7 +35,6 @@ class LoginBloc extends Bloc<LoginEventes, LoginState> {
           data: {
             'code_user': state.code_user,
             'mosque_code': state.mosque_code,
-            "fcm_token": fcmToken,
           },
         );
 

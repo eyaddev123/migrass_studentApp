@@ -48,13 +48,6 @@ dependencies:
   intl: ^0.20.2
 
 
-  # Firebase
-  firebase_core:
-  firebase_messaging:
-  firebase_crashlytics:
-  flutter_local_notifications:
-
-
 
 dev_dependencies:
   flutter_test:
