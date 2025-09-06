@@ -25,14 +25,14 @@ class MyApp extends StatelessWidget {
       home://CustomDrawer(),
       //loginScreen(),
      // HomeScrren(),
-      //NavigationScreen(),
+    //  NavigationScreen(),
       //Myexamscreen(),
      // Mymarksscreen(),
      // RecordingScreen(),
      // NavigationScreen(),
      // myachivment(),
       //  MyLesson(),
-     SplashScreen(),
+      SplashScreen(),
       //ChallangeScreen(),
     );
   }

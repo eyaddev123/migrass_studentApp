@@ -47,6 +47,9 @@ class _loginScreenState extends State<loginScreen> {
                           await prefs.setString('token', state.token!);
                           print(" Token saved to SharedPreferences: ${state.token}");
                         }
+                        await prefs.setString('code_user', state.code_user ?? '');
+                        await prefs.setString('mosque_code', state.mosque_code ?? '');
+
 
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('تم تسجيل بنجاح')),

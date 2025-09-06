@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student/core/resource/colors_manager.dart';
 
 class myProgram extends StatelessWidget {
   const myProgram({super.key});
@@ -6,7 +7,9 @@ class myProgram extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(child: Text("My Program")));
+      backgroundColor:  ColorManager.successBackgroundLight,
+        body: SafeArea(
+            child: Text("My Program")));
   }
 }
 

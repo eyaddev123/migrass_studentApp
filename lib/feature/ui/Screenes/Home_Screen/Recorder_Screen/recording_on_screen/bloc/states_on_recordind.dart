@@ -2,13 +2,13 @@ import 'package:equatable/equatable.dart';
 
 class SendRecordState extends Equatable {
   final String? selectedSurah;
-  final int fromAya;
-  final int toAya;
+  final int? fromAya;
+  final int? toAya;
 
   const SendRecordState({
     this.selectedSurah,
-    this.fromAya = 1,
-    this.toAya = 20,
+    this.fromAya,
+    this.toAya,
   });
 
   SendRecordState copyWith({
@@ -32,8 +32,8 @@ class SendRecordUploading extends SendRecordState {
 
 class SendRecordSuccess extends SendRecordState {
   final String message;
-  const SendRecordSuccess(this.message);
-
+  final int audioId;
+  const SendRecordSuccess(this.message, {required this.audioId});
   @override
   List<Object?> get props => [message];
 }

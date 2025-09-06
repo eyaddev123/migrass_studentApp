@@ -16,7 +16,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
     HomeScrren(),
-    myProgram(),
+   // myProgram(),
     RecordingScreen(),
   ];
 
@@ -47,7 +47,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ),
             label: 'الرئيسية',
           ),
-          BottomNavigationBarItem(
+         /* BottomNavigationBarItem(
             icon: Image.asset(
               IconImageManager.report,
               color: currentIndex == 1
@@ -55,11 +55,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   : ColorManager.gray,
             ),
             label: 'برنامج',
-          ),
+          ),*/
           BottomNavigationBarItem(
             icon: Image.asset(
               IconImageManager.Microphone,
-              color: currentIndex == 2
+              color: currentIndex == 1
                   ? ColorManager.accentGreen
                   : ColorManager.gray,
             ),

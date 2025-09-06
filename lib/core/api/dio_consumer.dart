@@ -7,7 +7,7 @@ class DioConsumer implements ApiConsumer {
   final Dio dio = Dio(
     BaseOptions(
      //  baseUrl: "https://api.devscape.online",
-      baseUrl: "http://192.168.43.127:4000",
+      baseUrl: "http://192.168.1.103:4000",
     //  baseUrl: "http://localhost:4000",
       connectTimeout: const Duration(seconds: 30),
       receiveTimeout: const Duration(seconds: 30),
@@ -124,5 +124,4 @@ Future<Response> put(
   }
 }
 
-  
 }

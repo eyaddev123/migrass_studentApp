@@ -24,9 +24,8 @@ class SendRecordBloc extends Bloc<SendRecordEvent, SendRecordState> {
     on<UploadRecord>((event, emit) async {
       emit(const SendRecordUploading());
       try {
-        // اقرأ التوكن
         final prefs = await SharedPreferences.getInstance();
-        final token = prefs.getString("token"); // اسم المفتاح اللي خزنت فيه التوكن
+        final token = prefs.getString("token");
 
         if (token == null) {
           emit(const SendRecordFailure("التوكن غير موجود"));
@@ -36,7 +35,7 @@ class SendRecordBloc extends Bloc<SendRecordEvent, SendRecordState> {
         final formData = FormData.fromMap({
           "audio": await MultipartFile.fromFile(
             event.filePath,
-            filename: "record.mp3",
+            filename: "record.m4a",
           ),
           "surah_id": event.surahId,
           "from_ayah_id": event.fromAya,
@@ -52,8 +51,12 @@ class SendRecordBloc extends Bloc<SendRecordEvent, SendRecordState> {
             },
           ),
         );
+        print("DEBUG: response.data 1111= ${response.data}");
+    // emit(SendRecordSuccess(response.data["message"]));
+      //  emit(SendRecordSuccess("تم رفع التسجيل بنجاح", audioId: response.data["audio"]["id"]));
+        emit(SendRecordSuccess("تم رفع التسجيل بنجاح", audioId: response.data["id"]));
 
-        emit(SendRecordSuccess(response.data["message"]));
+        print("DEBUG: response.data = ${response.data}");
       } catch (e) {
         emit(SendRecordFailure(e.toString()));
       }

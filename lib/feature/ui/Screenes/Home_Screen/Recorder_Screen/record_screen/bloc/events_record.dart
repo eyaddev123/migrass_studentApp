@@ -22,7 +22,8 @@ class StopPlaying extends RecordingEvent {}
 
 class PlayRecording extends RecordingEvent {
   final String path;
-  const PlayRecording(this.path);
+  final String remoteUrl;
+  const PlayRecording(this.path, this.remoteUrl);
 
   @override
   List<Object?> get props => [path];
